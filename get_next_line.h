@@ -6,7 +6,7 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:16 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/01/31 15:21:53 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:39:39 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ char	*get_next_line(int fd);
 # include <unistd.h>
 # include <stdbool.h>
 # include <fcntl.h>
-
+# include <stdlib.h>
 //funciones usadas en el GNL
 
 char	*get_next_line(int fd);
 char    *ft_strchr(const char *s, int c);
-
+char	*ft_strdup(const char *s);
 
 #endif

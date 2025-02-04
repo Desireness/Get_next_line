@@ -6,11 +6,18 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:00 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/01/31 15:24:35 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:00:56 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char *stash;
+
+char	*get_next_line(int fd)
+{
+	
+}
 
 int main()
 {
@@ -29,7 +36,10 @@ int main()
 		if (pos)
 		{
 			*pos = '\0';
-			printf("buff->%s", buff);
+			printf("buff->%s\n", buff);
+			free(stash);
+			stash = ft_strdup(pos + 1);
+			printf("stash->%s\n", stash);
 			break;	
 		}
 		else
