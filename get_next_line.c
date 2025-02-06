@@ -6,7 +6,7 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:00 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/02/04 23:00:56 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:08:48 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,32 @@
 
 static char *stash;
 
+char *get_stash(char *buffer)
+{
+	char *pos;
+	char *new_stash;
+
+	pos = ft_strchr(buffer. '\n');
+	if(!pos)
+		return (NULL);
+	new_stash = ft_strdup(pos + 1);
+	return (new_stash);
+}
+
 char	*get_next_line(int fd)
 {
-	
+	static char *stash;
+	char buff[BUFFER_SIZE + 1];
+	char *line;
+	int chars_read;
+
+	if(fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	while((chars_read  =read(fd, buff, BUFFER_SIZE)) > 0)
+	{
+		buff[chars_read] = '\0';	
+	}
+	return (line);	
 }
 
 int main()
