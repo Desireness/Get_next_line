@@ -6,7 +6,7 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:16 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/02/04 22:39:39 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:05:29 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ char	*get_next_line(int fd);
 char	*get_next_line(int fd);
 char    *ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
-
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(void *s, size_t n);
 #endif
