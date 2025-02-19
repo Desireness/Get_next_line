@@ -6,7 +6,7 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:16 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/02/18 19:11:30 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:50:12 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 10000000
 # endif
 
 # include <stdio.h>
@@ -25,6 +25,8 @@
 //funciones usadas en el GNL
 
 char	*get_next_line(int fd);
+char	*extract_line(char **stash);
+char	*read_and_store(int fd, char **stash, char *buffer);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
