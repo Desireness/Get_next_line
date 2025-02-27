@@ -6,7 +6,7 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:00 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/02/19 15:20:21 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/28 00:18:00 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return (ptr);
 }
 
-char	*read_and_store(int fd, char **stash, char *buffer)
+char	*read_and_store(int fd, char **content, char *buffer)
 {
 	int		chars_read;
 	char	*temp;
@@ -48,20 +48,20 @@ char	*read_and_store(int fd, char **stash, char *buffer)
 	while (chars_read > 0)
 	{
 		buffer[chars_read] = '\0';
-		if (!(*stash))
-			*stash = ft_strdup("");
-		temp = ft_strjoin(*stash, buffer);
+		if (!(*content))
+			*content = ft_strdup("");
+		temp = ft_strjoin(*content, buffer);
 		if (!temp)
 			return (NULL);
-		free(*stash);
-		*stash = temp;
+		free(*content);
+		*content = temp;
 		if (ft_strchr(buffer, '\n'))
 			break ;
 		chars_read = read(fd, buffer, BUFFER_SIZE);
 	}
 	if (chars_read == -1)
-		return (free(*stash), *stash = NULL, NULL);
-	return (*stash);
+		return (free(*content), *content = NULL, NULL);
+	return (*content);
 }
 
 char	*extract_line(char **stash)
@@ -131,18 +131,66 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
+//int main()
+//{
+//    int fd = open("prueba.txt", O_RDONLY);
+//    char *line;
+//
+//    if (fd < 0)
+//       return (1);
+//   while ((line = get_next_line(fd)))
+//    {
+//        printf("%s", line);
+//        free(line);
+//    }
+//    close(fd);
+//    return (0);
+//}
+
+/*int main(int ac, char **av)
+{
+	int fd;
+	char *line;
+	
+	if(ac == 2)
+	{
+		fd = open(av[1], O_RDONLY);
+		if (fd < 0)
+		{
+			perror("Error al abrir este archivo");
+			return (1);
+		}	
+	}
+	else
+	{
+		fd = STDIN_FILENO;
+	}
+	while((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	if(fd != STDIN_FILENO)
+		close(fd);
+	return (0);
+}*/
+
 /*int main()
 {
-    int fd = open("prueba.txt", O_RDONLY);
-    char *line;
+	int fd = open("single_line.txt", O_RDONLY);
+	char *line;
 
-    if (fd < 0)
-       return (1);
-   while ((line = get_next_line(fd)))
-    {
-        printf("%s", line);
-        free(line);
-    }
-    close(fd);
-    return (0);
+	if(fd < 0) 
+	{
+		perror("Error abriendo el archivo");
+		return (1);
+	}
+
+	while((line = get_next_line(fd)))
+	{
+		printf("Line: %s", line);
+		free(line);
+	}
+	close(fd);
+	return (0);
 }*/
