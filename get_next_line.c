@@ -6,7 +6,7 @@
 /*   By: rauizqui <rauizqui@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:37:00 by rauizqui          #+#    #+#             */
-/*   Updated: 2025/03/03 13:10:40 by rauizqui         ###   ########.fr       */
+/*   Updated: 2025/02/28 00:18:00 by rauizqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,18 @@ char	*extract_line(char **stash)
 	return (line);
 }
 
+//char *get_stash(char *buffer)
+//{
+//	char *pos;
+//	char *new_stash;
+//
+//	pos = ft_strchr(buffer. '\n');
+//	if(!pos)
+//		return (NULL);
+//	new_stash = ft_strdup(pos + 1);
+//	return (new_stash);
+//}
+
 char	*get_next_line(int fd)
 {
 	static char	*stash;
@@ -118,3 +130,67 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
+
+//int main()
+//{
+//    int fd = open("prueba.txt", O_RDONLY);
+//    char *line;
+//
+//    if (fd < 0)
+//       return (1);
+//   while ((line = get_next_line(fd)))
+//    {
+//        printf("%s", line);
+//        free(line);
+//    }
+//    close(fd);
+//    return (0);
+//}
+
+/*int main(int ac, char **av)
+{
+	int fd;
+	char *line;
+	
+	if(ac == 2)
+	{
+		fd = open(av[1], O_RDONLY);
+		if (fd < 0)
+		{
+			perror("Error al abrir este archivo");
+			return (1);
+		}	
+	}
+	else
+	{
+		fd = STDIN_FILENO;
+	}
+	while((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	if(fd != STDIN_FILENO)
+		close(fd);
+	return (0);
+}*/
+
+/*int main()
+{
+	int fd = open("single_line.txt", O_RDONLY);
+	char *line;
+
+	if(fd < 0) 
+	{
+		perror("Error abriendo el archivo");
+		return (1);
+	}
+
+	while((line = get_next_line(fd)))
+	{
+		printf("Line: %s", line);
+		free(line);
+	}
+	close(fd);
+	return (0);
+}*/
